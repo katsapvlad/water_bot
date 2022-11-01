@@ -1,0 +1,30 @@
+en:
+  hi: "Hi 👋\n"
+  welcome: "This bot will help you to control your water balance 💧\nJust select the desired interval and the bot will automatically remind you that you need to drink some water ⏰"
+  change_language: "The language has been successfully changed to English 🇬🇧"
+  set_reminder: "⏱ Set a reminder"
+  main_menu: "Select one of the actions below:\n"
+  stop_reminder: '🚫 Stop reminders'
+  language: '🇬🇧 Language'
+  rate_me: '⭐ Rate this bot'
+  feedback: '📬 Feedback'
+  donate: '💵 Donate'
+  other_bots: '🤖 Other bots'
+  back: '⬅ Back'
+  half_hour: '⏱ 30 min'
+  hour: '⏱ 1 hour'
+  one_and_half_hour: '⏱ 1.5 hours'
+  two_hours: '⏱ 2 hours'
+  english: '🇬🇧 English'
+  russian: '🇷🇺 Russian'
+  reminders_disable: 'Reminders are disabled!'
+  single_bot: 'At the moment, this developer has no other bots'
+  select_language: 'Select one of the available languages:'
+  unknown_method: "I dont know what is it\nPlease select an option from the ones listed above 👆"
+  half_hour_reminder: 'Reminders will come every 30 min 💧'
+  hour_reminder: 'Reminders will come every hour 💧'
+  one_and_half_hour_reminder: 'Reminders will come every 1.5 hours 💧'
+  two_hours_reminder: 'Reminders will come every 2 hours 💧'
+  drinking_time: "Hey 👋\nIt`s time to drink some water 💧"
+  select_time_interval: 'Select a time interval:'
+  not_implemented_yet: 'This functionality is under development and will be ready very soon!'

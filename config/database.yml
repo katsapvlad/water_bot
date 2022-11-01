@@ -1,0 +1,5 @@
+adapter: postgresql
+host: localhost
+username: vladislavkatsap
+password: qwert12345
+database: collection_bot_development
