@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
 require 'active_record'
 require 'erb'
-require 'dotenv'
-Dotenv.load
 
 namespace :db do
   db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
