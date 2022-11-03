@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
-require 'dotenv/load'
 require 'i18n'
 require 'telegram/bot'
 require 'sidekiq'
 require_relative '../workers/reminder_worker'
 require_relative '../models/user'
 require_relative '../modules/inline_button'
+require 'dotenv'
+Dotenv.load
 
 # Main commands for Water Bot
 class Responser

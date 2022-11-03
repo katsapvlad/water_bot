@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'dotenv/load'
 require 'erb'
 require 'i18n'
 require 'telegram/bot'
@@ -9,6 +8,8 @@ require_relative 'app/services/responser'
 require_relative 'app/services/router'
 require_relative 'app/modules/inline_button'
 require_relative 'config/constants'
+require 'dotenv'
+Dotenv.load
 
 
 logger = Logger.new($stdout)
