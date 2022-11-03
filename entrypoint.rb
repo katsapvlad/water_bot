@@ -21,6 +21,7 @@ I18n.default_locale = :en
 logger.info('Bot started')
 
 loop do
+  puts ENV['TELEGRAM_BOT_API_TOKEN']
   Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_API_TOKEN']) do |bot|
     bot.listen do |rqst|
       Thread.start(rqst) do |income_message|
