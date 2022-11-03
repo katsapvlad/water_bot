@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
+require 'dotenv/load'
 require 'active_record'
+require 'erb'
 
 namespace :db do
-  db_config       = YAML.safe_load(File.open('config/database.yml'))
+  db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
   db_config_admin = db_config.merge({ 'database' => 'postgres', 'schema_search_path' => 'public' })
 
   desc 'Create the database'
@@ -15,6 +17,7 @@ namespace :db do
 
   desc 'Drop the database'
   task :drop do
+    puts db_config
     ActiveRecord::Base.establish_connection(db_config_admin)
     ActiveRecord::Base.connection.drop_database(db_config['database'])
     puts 'Database deleted.'

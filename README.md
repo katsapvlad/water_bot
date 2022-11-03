@@ -33,9 +33,7 @@ Install dependencies
   bundle install
 ~~~
 
-Then rename  ```.env_example``` to ```.env``` and configure your own bot token and telegram ID
-
-Also rename  ```database_example.yml``` to ```database.yml``` and configure your own database settings
+Then rename  ```.env_example``` to ```.env``` and configure your own credentials
 
 Create and setup database (other database and migration actions are in the ```Rakefile```)
 

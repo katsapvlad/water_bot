@@ -1,5 +1,0 @@
-adapter: postgresql
-host: your_host
-username: your_username
-password: yout_password
-database: your_database_name

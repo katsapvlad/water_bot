@@ -130,7 +130,7 @@ class Responser
 
   def save_user
     user = User.create(username: @income_message.from.username, telegram_id: @income_message.from.id,
-                       reminder_interval: 0, language: 'ru')
+                       reminder_interval: 0, language: 'en')
 
     new_user_notification(user.username, User.count)
     ReminderWorker.perform_async(@income_message.from.id, @chat_id)

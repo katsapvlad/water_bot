@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'dotenv/load'
+require 'erb'
 require 'i18n'
 require 'telegram/bot'
 require 'active_record'
@@ -12,7 +13,7 @@ require_relative 'config/constants'
 
 logger = Logger.new($stdout)
 
-db_config = YAML.safe_load(File.open('config/database.yml'))
+db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
 ActiveRecord::Base.establish_connection(db_config)
 I18n.load_path = Dir["#{File.expand_path('config/locales')}/*.yml"]
 I18n.default_locale = :en

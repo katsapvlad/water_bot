@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'erb'
 require 'telegram/bot'
 require 'sidekiq'
 require_relative '../models/user'
@@ -17,7 +18,7 @@ Sidekiq.configure_server do |config|
   config.redis = { db: 1 }
 end
 
-db_config = YAML.safe_load(File.open('config/database.yml'))
+db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
 ActiveRecord::Base.establish_connection(db_config)
 
 # Water Bot reminder logic
