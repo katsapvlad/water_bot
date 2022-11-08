@@ -22,6 +22,7 @@ logger.info('Bot started')
 
 loop do
   Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_API_TOKEN']) do |bot|
+    logger.info('Im into bot')
     bot.listen do |rqst|
       Thread.start(rqst) do |income_message|
         Router.processing(bot, income_message)
