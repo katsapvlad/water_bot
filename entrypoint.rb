@@ -13,10 +13,17 @@ require_relative 'config/constants'
 
 logger = Logger.new($stdout)
 
+logger.info('Debug message: 1')
+
 db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
+logger.info('Debug message: 2')
 ActiveRecord::Base.establish_connection(db_config)
+logger.info('Debug message: 3')
 I18n.load_path = Dir["#{File.expand_path('config/locales')}/*.yml"]
+logger.info('Debug message: 4')
 I18n.default_locale = :en
+
+logger.info('Debug message: 5')
 
 logger.info('Bot started')
 
