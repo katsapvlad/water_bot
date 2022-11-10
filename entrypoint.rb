@@ -20,7 +20,7 @@ I18n.default_locale = :en
 
 logger.info('Bot started')
 
-loop do
+# loop do
   Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_API_TOKEN']) do |bot|
     logger.info('Im into bot')
     bot.listen do |rqst|
@@ -31,6 +31,6 @@ loop do
       end
     end
   end
-rescue StandardError => e
-  logger.error(e)
-end
+# rescue StandardError => e
+  # logger.error(e)
+# end
