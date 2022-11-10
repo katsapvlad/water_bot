@@ -1,44 +1,27 @@
 # frozen_string_literal: true
 
-puts 'message 1'
 require 'dotenv/load'
-puts 'message 2'
 require 'erb'
-puts 'message 3'
 require 'i18n'
-puts 'message 4'
 require 'telegram/bot'
-puts 'message 5'
-require_relative 'config/constants'
-puts 'message 6'
-require_relative 'app/services/responser'
-puts 'message 7'
-require_relative 'app/services/router'
-puts 'message 8'
-require_relative 'app/modules/inline_button'
-puts 'message 9'
 require 'active_record'
-puts 'message 10'
+require_relative 'app/services/responser'
+require_relative 'app/services/router'
+require_relative 'app/modules/inline_button'
+require_relative 'config/constants'
+
 
 logger = Logger.new($stdout)
 
-logger.info('Debug message: 1')
-
 db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
-logger.info('Debug message: 2')
 ActiveRecord::Base.establish_connection(db_config)
-logger.info('Debug message: 3')
 I18n.load_path = Dir["#{File.expand_path('config/locales')}/*.yml"]
-logger.info('Debug message: 4')
 I18n.default_locale = :en
-
-logger.info('Debug message: 5')
 
 logger.info('Bot started')
 
-# loop do
+loop do
   Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_API_TOKEN']) do |bot|
-    logger.info('Im into bot')
     bot.listen do |rqst|
       Thread.start(rqst) do |income_message|
         Router.processing(bot, income_message)
@@ -47,6 +30,6 @@ logger.info('Bot started')
       end
     end
   end
-# rescue StandardError => e
-  # logger.error(e)
-# end
+rescue StandardError => e
+  logger.error(e)
+end
