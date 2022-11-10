@@ -1,45 +1,38 @@
 # frozen_string_literal: true
 
+puts 'message 1'
+require 'dotenv/load'
+puts 'message 2'
+require 'erb'
+puts 'message 3'
+require 'i18n'
+puts 'message 4'
+require 'telegram/bot'
+puts 'message 5'
+require 'active_record'
+puts 'message 6'
+require_relative 'app/services/responser'
+puts 'message 7'
+require_relative 'app/services/router'
+puts 'message 8'
+require_relative 'app/modules/inline_button'
+puts 'message 9'
+require_relative 'config/constants'
+puts 'message 10'
+
 logger = Logger.new($stdout)
 
 logger.info('Debug message: 1')
 
-require 'dotenv/load'
-
-logger.info('Debug message: 2')
-
-require 'erb'
-
-logger.info('Debug message: 3')
-require 'i18n'
-
-logger.info('Debug message: 4')
-require 'telegram/bot'
-
-logger.info('Debug message: 5')
-require 'active_record'
-
-logger.info('Debug message: 6')
-require_relative 'app/services/responser'
-
-logger.info('Debug message: 7')
-require_relative 'app/services/router'
-
-logger.info('Debug message: 8')
-require_relative 'app/modules/inline_button'
-
-logger.info('Debug message: 9')
-require_relative 'config/constants'
-
 db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
-logger.info('Debug message: 10')
+logger.info('Debug message: 2')
 ActiveRecord::Base.establish_connection(db_config)
-logger.info('Debug message: 11')
+logger.info('Debug message: 3')
 I18n.load_path = Dir["#{File.expand_path('config/locales')}/*.yml"]
-logger.info('Debug message: 12')
+logger.info('Debug message: 4')
 I18n.default_locale = :en
 
-logger.info('Debug message: 13')
+logger.info('Debug message: 5')
 
 logger.info('Bot started')
 
