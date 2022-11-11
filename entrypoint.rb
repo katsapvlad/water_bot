@@ -10,7 +10,6 @@ require_relative 'app/services/router'
 require_relative 'app/modules/inline_button'
 require_relative 'config/constants'
 
-
 logger = Logger.new($stdout)
 
 db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
@@ -20,7 +19,7 @@ I18n.default_locale = :en
 
 logger.info('Bot started')
 
-# loop do
+loop do
   Telegram::Bot::Client.run(ENV['TELEGRAM_BOT_API_TOKEN']) do |bot|
     bot.listen do |rqst|
       Thread.start(rqst) do |income_message|
@@ -30,6 +29,6 @@ logger.info('Bot started')
       end
     end
   end
-# rescue StandardError => e
-#   logger.error(e)s
-# end
+rescue StandardError => e
+  logger.error(e)
+end
