@@ -11,11 +11,11 @@ I18n.load_path = Dir["#{File.expand_path('config/locales')}/*.yml"]
 I18n.default_locale = :en
 
 Sidekiq.configure_client do |config|
-  config.redis = { db: 1 }
+  config.redis = { db: 1, url: ENV['REDIS_URL'] }
 end
 
 Sidekiq.configure_server do |config|
-  config.redis = { db: 1 }
+  config.redis = { db: 1, url: ENV['REDIS_URL'] }
 end
 
 db_config = YAML.safe_load(ERB.new(File.read('config/database.yml.erb')).result)
