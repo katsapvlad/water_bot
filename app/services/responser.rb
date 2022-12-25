@@ -76,7 +76,7 @@ class Responser
       [
         [InlineButton.set_reminder_button],
         [InlineButton.language_button, InlineButton.stop_reminder_button],
-        [InlineButton.feedback_button, InlineButton.rate_me_button],
+        [InlineButton.support_button, InlineButton.rate_me_button],
         [InlineButton.other_bots_button, InlineButton.donate_button]
       ]
     ), editless
@@ -97,8 +97,22 @@ class Responser
   # TODO
   # Add functions below
 
+  def support
+    inline_message I18n.t(:support_description), generate_inline_markup(
+      [
+        [InlineButton.restart_button, InlineButton.feedback_button], [InlineButton.back_button]
+      ]
+    ), true
+  end
+
   def feedback
-    not_implemented_yet
+    default_back_action(I18n.t(:feedback_description))
+  end
+
+  def restart
+    User.destroy(current_user.id)
+    @current_user = nil
+    start
   end
 
   def donate

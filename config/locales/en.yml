@@ -7,7 +7,11 @@ en:
   stop_reminder: '🚫 Stop reminders'
   language: '🇬🇧 Language'
   rate_me: '⭐ Rate this bot'
-  feedback: '📬 Feedback'
+  support: '👨🏻‍💻 Support'
+  support_description: "If your notifications have stopped coming (and you are sure that you did not disable them) - click the '🔄 Restart' button\n\nIf you have another problem or want to suggest your idea to improve the bot - click the '💬 Feedback' button"
+  restart: '🔄 Restart'
+  feedback: '💬 Feedback'
+  feedback_description: "Here you can describe a problem or an idea to improve the bot 👇\n\nhttps://forms.gle/nqyXRZSvjJViACe56"
   donate: '💵 Donate'
   other_bots: '🤖 Other bots'
   back: '⬅ Back'

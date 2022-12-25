@@ -22,6 +22,14 @@ module InlineButton
     Telegram::Bot::Types::InlineKeyboardButton.new(text: I18n.t(:rate_me), callback_data: '/rate_me')
   end
 
+  def self.support_button
+    Telegram::Bot::Types::InlineKeyboardButton.new(text: I18n.t(:support), callback_data: '/support')
+  end
+
+  def self.restart_button
+    Telegram::Bot::Types::InlineKeyboardButton.new(text: I18n.t(:restart), callback_data: '/restart')
+  end
+
   def self.feedback_button
     Telegram::Bot::Types::InlineKeyboardButton.new(text: I18n.t(:feedback), callback_data: '/feedback')
   end
