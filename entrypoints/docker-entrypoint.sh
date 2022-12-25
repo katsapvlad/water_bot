@@ -2,4 +2,6 @@
 
 set -e
 
-bundle exec ruby entrypoint.rb s -b 0.0.0.0
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec ruby entrypoint.rb
